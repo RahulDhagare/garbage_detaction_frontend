@@ -12,6 +12,11 @@ function CameraDetector() {
   const [lastSaved, setLastSaved] = useState(null)
 
   useEffect(() => {
+    navigator.mediaDevices.getUserMedia({
+  video: {
+    facingMode: { exact: "environment" }
+  }
+})
     navigator.mediaDevices.getUserMedia({ video: true })
       .then((stream) => {
         if (videoRef.current) {
